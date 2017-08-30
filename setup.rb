@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'json'
 
 def init()
@@ -11,6 +12,10 @@ def setup_zsh()
   install_package("zsh")
 end
 
+def setup_emacs()
+  install_package("emacs")
+end
+
 def install_package(package_name)
   cmd = "#{@install_command} #{package_name}"
   puts "Installing #{package_name}"
@@ -18,7 +23,6 @@ def install_package(package_name)
 end
 
 init()
-puts @dir
 setup_zsh
-
-
+setup_emacs
+puts "Kész!"
