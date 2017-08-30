@@ -10,6 +10,7 @@ def init()
 end
 
 def setup_zsh()
+  install_package("util-linux-user")
   install_package("zsh")
   %x{ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" }
   %x{ chsh -s /bin/zsh }
