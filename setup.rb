@@ -6,10 +6,14 @@ def init()
   options = JSON.parse(json_file)
   @install_command = options['install_command']
   @dir = options['dotfiles_location']
+  @homedir = options['home_dir']
 end
 
 def setup_zsh()
   install_package("zsh")
+  %x{ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" }
+  %x{ chsh -s /bin/zsh }
+  %x{ cp #{@dir}/.zshrc #{@homedir} }
 end
 
 def setup_emacs()
