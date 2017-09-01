@@ -38,16 +38,17 @@ def setup_bspwm()
       %x{ sudo make install }
   }
   puts "[✔] bspwm építve"
-  %x{ cp #{@dir}/bspwmrc #{@homedir}/.config/bspwmrc }
-  %x{ chmod +x #{@homedir}/.config/bspwmrc}
+  %x{ cp #{@dir}/bspwmrc #{@homedir}/.config/bspwm/bspwmrc }
+  %x{ chmod +x #{@homedir}/.config/bspwm/bspwmrc}
   
   Dir.chdir("#{@homedir}/Software/sxhkd"){
       %x{ make }
       %x{ sudo make install }
   }
-  %x{ cp #{@dir}/sxhkdrc #{@homedir}/.config/sxhkdrc }
-  %x{ chmod +x #{@homedir}/.config/sxhkdrc }
+  %x{ cp #{@dir}/sxhkdrc #{@homedir}/.config/sxhkd/sxhkdrc }
+  %x{ chmod +x #{@homedir}/.config/sxhkd/sxhkdrc }
   puts "[✔] sxhkd építve"
+  %x{ sudo cp contrib/freedesktop/bspwm.desktop /usr/share/xsessions/ }
 end
 
 def git_clone(url, name)
