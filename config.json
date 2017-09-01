@@ -1,3 +1,5 @@
 {
-    "install_command":"dnf install -y"
+    "install_command":"dnf install -y",
+    "home_dir":"/root",
+    "dotfiles_location":"/root/dotfiles/linux_dotfiles/Dotfiles"
 }
